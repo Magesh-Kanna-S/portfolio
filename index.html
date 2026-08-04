@@ -83,14 +83,14 @@ img{max-width:100%;height:auto;display:block;}
 .navbar{position:fixed;top:0;left:0;right:0;height:68px;background:var(--nav-bg);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);z-index:10000;display:flex;align-items:center;transition:all var(--transition-normal);transform:translateY(-100%);}
 .navbar.visible{transform:translateY(0);}
 .navbar.scrolled{box-shadow:var(--shadow);height:58px;}
-.nav-container{max-width:var(--container-max);width:100%;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;}
+.nav-container{max-width:var(--container-max);width:100%;margin:0 auto;padding:0 16px;display:flex;align-items:center;justify-content:space-between;gap:8px;}
 .nav-logo{display:flex;align-items:center;gap:9px;font-weight:700;font-size:1.05rem;color:var(--text-primary);text-decoration:none;flex-shrink:0;}
 .nav-logo .logo-icon{width:32px;height:32px;background:var(--gradient-accent);border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:0.9rem;flex-shrink:0;}
 
 /* Nav links — compact, no-wrap, scroll if needed */
-.nav-links{display:flex;align-items:center;gap:2px;list-style:none;overflow-x:auto;scrollbar-width:none;flex:1;justify-content:center;}
+.nav-links{display:flex;align-items:center;gap:1px;list-style:none;overflow-x:auto;scrollbar-width:none;flex:1;justify-content:center;min-width:0;}
 .nav-links::-webkit-scrollbar{display:none;}
-.nav-links a{color:var(--text-secondary);font-size:0.78rem;font-weight:500;padding:5px 9px;border-radius:var(--border-radius-full);transition:all var(--transition-normal);white-space:nowrap;display:block;}
+.nav-links a{color:var(--text-secondary);font-size:0.72rem;font-weight:500;padding:4px 7px;border-radius:var(--border-radius-full);transition:all var(--transition-normal);white-space:nowrap;display:block;}
 .nav-links a:hover,.nav-links a.active{color:var(--accent);background:var(--accent-glow);}
 
 .nav-actions{display:flex;align-items:center;gap:8px;flex-shrink:0;}
@@ -270,6 +270,36 @@ section{padding:var(--section-padding);position:relative;overflow-x:hidden;trans
 .cert-item-year{font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--text-muted);margin-top:2px;}
 .cert-badge{font-size:0.72rem;padding:2px 9px;border-radius:var(--border-radius-full);background:var(--tag-bg);color:var(--tag-text);white-space:nowrap;font-weight:600;flex-shrink:0;margin-top:2px;}
 
+/* ── INNOVATION SPOTLIGHT ── */
+.innovations-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:24px;max-width:1100px;margin:0 auto;}
+.innovation-card{background:var(--bg-card);backdrop-filter:blur(10px);border:1px solid var(--border);border-radius:var(--border-radius-lg);padding:32px;position:relative;overflow:hidden;transition:all var(--transition-normal);}
+.innovation-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--inv-accent,var(--accent));opacity:0;transition:opacity var(--transition-normal);}
+.innovation-card:hover{border-color:var(--inv-accent,var(--accent));box-shadow:0 10px 40px var(--inv-glow,var(--accent-glow));transform:translateY(-4px);}
+.innovation-card:hover::before{opacity:1;}
+.innovation-header{display:flex;align-items:center;gap:16px;margin-bottom:18px;}
+.innovation-icon{width:56px;height:56px;border-radius:14px;background:color-mix(in srgb,var(--inv-accent,var(--accent)) 15%,transparent);display:flex;align-items:center;justify-content:center;color:var(--inv-accent,var(--accent));font-size:1.5rem;flex-shrink:0;}
+.innovation-titles h3{font-size:1.35rem;font-weight:800;color:var(--text-primary);margin-bottom:3px;line-height:1.2;}
+.innovation-tagline{font-size:0.82rem;color:var(--inv-accent,var(--accent));font-weight:600;line-height:1.4;}
+.innovation-desc{color:var(--text-secondary);font-size:0.9rem;line-height:1.75;margin-bottom:16px;}
+.innovation-features{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;}
+.innovation-feature{display:inline-flex;align-items:center;gap:6px;font-size:0.76rem;padding:5px 11px;border-radius:var(--border-radius-full);background:var(--bg-tertiary);color:var(--text-secondary);font-weight:500;}
+.innovation-feature i{color:var(--inv-accent,var(--accent));font-size:0.7rem;}
+.innovation-links{display:flex;flex-wrap:wrap;gap:10px;}
+.innovation-link{display:inline-flex;align-items:center;gap:7px;padding:9px 16px;border-radius:var(--border-radius-full);background:var(--inv-accent,var(--accent));color:#fff;font-size:0.82rem;font-weight:600;text-decoration:none;transition:all var(--transition-normal);}
+.innovation-link:hover{transform:translateY(-2px);box-shadow:0 6px 18px var(--inv-glow,var(--accent-glow));color:#fff;}
+
+
+
+.cert-group{margin-bottom:28px;}
+.cert-group-header{display:flex;align-items:center;gap:9px;font-size:1rem;font-weight:700;color:var(--accent);margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid var(--border);}
+.cert-group-header i{font-size:0.9rem;}
+.cert-group-count{font-size:0.75rem;background:var(--tag-bg);color:var(--tag-text);padding:2px 10px;border-radius:var(--border-radius-full);font-weight:600;margin-left:4px;}
+.cert-group .cert-item{margin-bottom:8px;}
+
+.project-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;padding-top:12px;border-top:1px solid var(--border);}
+.project-link{display:inline-flex;align-items:center;gap:6px;font-size:0.78rem;font-weight:600;color:var(--accent);text-decoration:none;padding:6px 12px;border:1px solid var(--border-hover);border-radius:var(--border-radius-full);transition:all var(--transition-normal);}
+.project-link:hover{background:var(--accent);color:#fff;}
+
 /* ── ACHIEVEMENTS ── */
 .awards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:20px;max-width:960px;margin:0 auto;}
 .award-card{background:var(--bg-card);backdrop-filter:blur(10px);border:1px solid var(--border);border-radius:var(--border-radius);padding:26px;text-align:center;transition:all var(--transition-normal);}
@@ -346,6 +376,7 @@ footer p{color:var(--text-muted);font-size:0.83rem;}
 }
 @media(max-width:820px){
   .nav-links{display:none;}
+  .innovations-grid{grid-template-columns:1fr;}
   .hamburger{display:flex;}
   .mobile-nav-overlay{display:block;pointer-events:none;}
   .mobile-nav-overlay.active{pointer-events:auto;}
@@ -358,6 +389,12 @@ footer p{color:var(--text-muted);font-size:0.83rem;}
 }
 @media(max-width:520px){
   :root{--section-padding:64px 0;}
+  .innovation-card{padding:24px 18px;}
+  .innovation-titles h3{font-size:1.15rem;}
+  .innovation-icon{width:48px;height:48px;font-size:1.3rem;}
+  .innovation-link{padding:8px 14px;font-size:0.78rem;}
+
+  .cert-group-header{font-size:0.92rem;}
   .container{padding:0 16px;}
   .hero-name{font-size:2.1rem;}
   .hero-image{width:190px;height:190px;}
@@ -427,6 +464,7 @@ footer p{color:var(--text-muted);font-size:0.83rem;}
       <li><a href="#education" data-section="education">Education</a></li>
       <li><a href="#skills" data-section="skills">Skills</a></li>
       <li><a href="#projects" data-section="projects">Projects</a></li>
+      <li><a href="#innovation" data-section="innovation">Innovation</a></li>
       <li><a href="#certifications" data-section="certifications">Certifications</a></li>
       <li><a href="#achievements" data-section="achievements">Achievements</a></li>
       <li><a href="#contact" data-section="contact">Contact</a></li>
@@ -460,7 +498,7 @@ footer p{color:var(--text-muted);font-size:0.83rem;}
         <div class="hero-stats">
           <div class="stat-item"><div class="stat-number" data-target="40" data-suffix="+">0</div><div class="stat-label">Projects</div></div>
           <div class="stat-item"><div class="stat-number" data-target="35" data-suffix="%">0</div><div class="stat-label">Cost Savings</div></div>
-          <div class="stat-item"><div class="stat-number" data-target="100" data-suffix="+">0</div><div class="stat-label">Students Trained</div></div>
+          <div class="stat-item"><div class="stat-number" data-target="80" data-suffix="+">0</div><div class="stat-label">Students Trained</div></div>
           <div class="stat-item"><div class="stat-number" data-target="100" data-suffix="+">0</div><div class="stat-label">Certifications</div></div>
         </div>
         <div class="hero-actions">
@@ -545,6 +583,15 @@ footer p{color:var(--text-muted);font-size:0.83rem;}
     <div class="section-header"><h2>Featured <span class="accent">Projects</span></h2><span class="underline-animated"></span><p>40+ hands-on projects across AI, Business Intelligence, and Automation</p></div>
     <div class="cert-tabs" id="project-tabs"></div>
     <div id="project-panels"></div>
+  </div>
+</section>
+
+
+<!-- INNOVATION SPOTLIGHT -->
+<section id="innovation" style="background:var(--bg-secondary);">
+  <div class="container">
+    <div class="section-header"><h2>Innovation <span class="accent">Spotlight</span></h2><span class="underline-animated"></span><p>Original product concepts I designed, prototyped, and shipped as live HTML demos</p></div>
+    <div class="innovations-grid" id="innovations-grid"></div>
   </div>
 </section>
 
@@ -677,6 +724,20 @@ const FOCUS_AREAS=[
 // Descending order (most recent first)
 const EXPERIENCE=[
   {
+    role:'Business Analyst Intern (Strategy & GTM)',
+    company:'SKM Electronics MSME (SKMT Pvt. Ltd.)',
+    shortLabel:'SKM Electronics',
+    location:'Tirupattur, Tamil Nadu',
+    period:'Jun 2026 – Jul 2026',
+    periodShort:'Jun–Jul 2026',
+    bullets:[
+      'Executed 15 business strategy projects spanning pricing, GTM, market research, compliance, and channel strategy using Excel, Python, and PowerPoint',
+      'Built pricing models, market analysis, and consumer research supporting the Tamil Nadu launch, channel expansion, and a ₹132 Cr five-year revenue plan',
+      'Authored strategic reports and compliance documents for executive review and stakeholder alignment',
+      'Delivered an Entrepreneurship & IPR Faculty Development Programme (FDP) for 145+ participants'
+    ]
+  },
+  {
     role:'Business Analyst (Strategic Operations & Executive Associate)',
     company:'Valyria Visions Pvt. Ltd.',
     shortLabel:'Valyria Visions',
@@ -699,7 +760,7 @@ const EXPERIENCE=[
     period:'Aug 2025 – Dec 2025',
     periodShort:'Aug–Dec 2025',
     bullets:[
-      'Led comprehensive training on Excel, Power BI, and Tableau to 100+ students — 93% engagement rate, 4.7/5.0 feedback',
+      'Led comprehensive training programs on Excel, Power BI, and Tableau to 80+ students, achieving 93% engagement rate and 4.7/5.0 average feedback score',
       'Designed modules on requirement analysis, dashboard development, and data visualization',
       'Mentored 50+ students, improving internship and placement readiness through resume and LinkedIn optimization',
       'Deployed automated timetable system and QR-code lab registry — both in active institutional use'
@@ -785,7 +846,7 @@ const SKILLS=[
   {name:'Business Analysis',icon:'fa-briefcase',skills:['Business Analysis','Stakeholder Management','BRD Documentation','Gap Analysis','BPMN Modeling','Process Reengineering','Data Governance','KPI Design','Financial Analysis']},
   {name:'Agile & Project Tools',icon:'fa-sync-alt',skills:['Agile / Scrum','JIRA','Confluence','MS Visio','Project Coordination','Sprint Planning']},
   {name:'Data & Analytics',icon:'fa-chart-bar',skills:['Power BI','Tableau','SQL','Python','Excel (Advanced)','Data Modeling','Dashboard Development','YouTube Analytics']},
-  {name:'AI & Automation',icon:'fa-robot',skills:['Machine Learning','Generative AI','n8n Automation','Telegram Bots','Low-Code Tools','Prompt Engineering','SAP Analytics Cloud','Microsoft Azure (AZ-900)']}
+  {name:'AI & Automation',icon:'fa-robot',skills:['Machine Learning','Generative AI','Vibe Coding (SQL, Python & AI-assisted Dev)','n8n Automation','Telegram Bots','Low-Code Tools','Prompt Engineering','SAP Analytics Cloud','Microsoft Azure (AZ-900)']}
 ];
 
 const PROJECTS={
@@ -796,6 +857,7 @@ const PROJECTS={
     {title:'GenAI Powered Data Analytics Simulation',tech:'Tata iQ | Jan 2026',desc:'AI-driven analytics to predict delinquency risk and improve business decisions. Achieved 15% reduction in transition risk.',tags:['GenAI','Risk Analytics','Delinquency Prediction']}
   ],
   'Business Intelligence':[
+    {title:'Digital Certificate Vault & Verification Platform',tech:'HTML/JS | Apr 2026',desc:'Centralized credential management system with automated certificate distribution, email-based retrieval, and unique verification links. Deployed via GitHub Pages for seamless validation.',tags:['CertVault','Credentials','GitHub Pages','Verification'],links:[{label:'Live Vault',url:'https://magesh-kanna-s.github.io/CertVault/'},{label:'Verify',url:'https://magesh-kanna-s.github.io/CertVault/verify/'}]},
     {title:'Business Intelligence Dashboards',tech:'Power BI & Tableau | Feb 2026',desc:'Interactive dashboards for KPI tracking, profitability, and sales performance. Reduced manual reporting effort by 30%.',tags:['Power BI','Tableau','KPI','Dashboards']},
     {title:'Sales Performance Analysis – Smart Bazar',tech:'Tableau | Feb 2026',desc:'Product-wise profitability and national sales trend dashboards enabling better pricing and inventory decisions.',tags:['Tableau','Sales Analytics','Profitability']},
     {title:'Bookings Analysis – OYO',tech:'Power BI | Feb 2026',desc:'Customer behavior and location-based booking trend analysis to optimize platform strategy and channel performance.',tags:['Power BI','Customer Analytics','Segmentation']}
@@ -810,30 +872,112 @@ const PROJECTS={
 
 // Descending order (most recent first)
 const CERTIFICATIONS=[
-  {title:'Business Analysis & Process Management',issuer:'Coursera',year:'2026'},
-  {title:'Strategy Consulting Job Simulation',issuer:'Forage',year:'2026'},
-  {title:'Data Analytics Job Simulation',issuer:'Forage',year:'2026'},
-  {title:'GenAI Powered Data Analytics Simulation',issuer:'Forage',year:'2026'},
-  {title:'Data Visualization: Empowering Business with Effective Insights',issuer:'Forage',year:'2026'},
-  {title:'Microsoft Certified: Dynamics 365 Fundamentals',issuer:'Ernst & Young',year:'2026'},
-  {title:'Microsoft Azure Fundamentals (AZ-900)',issuer:'Ernst & Young',year:'2026'},
-  {title:'Exploring SAP Analytics Cloud',issuer:'SAP',year:'2026'},
-  {title:'HP LIFE Program (30+ Certifications)',issuer:'HP LIFE',year:'2026'},
-  {title:'Manzil, The Leap Year, The Birth of the Salesman',issuer:'Bajaj Finserv (March 2026 Elite)',year:'2026'},
-  {title:'Generative AI Mastermind',issuer:'GrowthSchool',year:'2025'},
-  {title:'AI Tools Workshop',issuer:'Be10x',year:'2025'},
-  {title:'Leadership and Team Effectiveness',issuer:'NPTEL',year:'2026'},
-  {title:'Financial Accounting',issuer:'NPTEL',year:'2026'},
-  {title:'AI in Human Resource Management (Top 2%)',issuer:'NPTEL',year:'2026'}
+  // MoE's Innovation Cell
+  {title:'Innovation Ambassador – Foundation Level',issuer:"MoE's Innovation Cell",year:'2026',group:'Innovation'},
+  {title:'Innovation Ambassador Training – Advanced Level',issuer:"MoE's Innovation Cell",year:'2026',group:'Innovation'},
+  {title:'Innovation Ambassador (IA) Training – Reskilling',issuer:"MoE's Innovation Cell",year:'2026',group:'Innovation'},
+  // Coursera
+  {title:'Business Analysis & Process Management',issuer:'Coursera',year:'2026',group:'Business'},
+  // Forage
+  {title:'Strategy Consulting Job Simulation',issuer:'Forage',year:'2026',group:'Business'},
+  {title:'Data Analytics Job Simulation',issuer:'Forage',year:'2026',group:'Business'},
+  {title:'GenAI Powered Data Analytics Job Simulation',issuer:'Forage',year:'2026',group:'Business'},
+  {title:'Data Visualization: Empowering Business with Effective Insights',issuer:'Forage',year:'2026',group:'Business'},
+  // Ernst & Young
+  {title:'Microsoft Certified: Dynamics 365 Fundamentals',issuer:'Ernst & Young',year:'2026',group:'Technology'},
+  {title:'Microsoft Azure Fundamentals (AZ-900)',issuer:'Ernst & Young',year:'2026',group:'Technology'},
+  // SAP
+  {title:'Exploring SAP Analytics Cloud',issuer:'SAP',year:'2026',group:'Technology'},
+  // HP LIFE
+  {title:'HP LIFE Program (30+ Professional Certifications)',issuer:'HP LIFE',year:'2026',group:'Professional'},
+  // GrowthSchool
+  {title:'Generative AI Mastermind',issuer:'GrowthSchool',year:'2025',group:'AI & Automation'},
+  // NPTEL
+  {title:'AI in Human Resource Management (Top 2%)',issuer:'NPTEL',year:'2026',group:'NPTEL Elite'},
+  {title:'Leadership and Team Effectiveness',issuer:'NPTEL',year:'2026',group:'NPTEL Elite'},
+  {title:'Financial Accounting',issuer:'NPTEL',year:'2026',group:'NPTEL Elite'},
+  // Bajaj Finserv
+  {title:'Certificate Programme in Banking, Finance and Insurance (CPBFI) – 95%',issuer:'Bajaj Finserv',year:'2026',group:'Finance & Banking'},
+  {title:'CPBFI – HR Workshop – 90%',issuer:'Bajaj Finserv',year:'2026',group:'Finance & Banking'},
+  {title:'Manzil, The Leap Year & The Birth of the Salesman',issuer:'Bajaj Finserv (Elite)',year:'2026',group:'Finance & Banking'},
+  // KVIM B School
+  {title:'Research Paper Presentation – Impact of Macroeconomic Determinants on Indian Stock',issuer:'KVIM B School',year:'Apr 2026',group:'KVIM B School'},
+  {title:'Best Paper Award – Impact of Macroeconomic Determinants on Indian Stock',issuer:'KVIM B School',year:'Apr 2026',group:'KVIM B School'},
+  {title:'Business Analytics Certification Program',issuer:'KVIM B School',year:'Feb 2026',group:'KVIM B School'},
+  {title:'Skill Development Program in Interpersonal and Team Skills',issuer:'KVIM B School',year:'2026',group:'KVIM B School'},
+  {title:'Skill Development Program in Digital Payments and e-Commerce Strategies',issuer:'KVIM B School',year:'2026',group:'KVIM B School'},
+  {title:'Skill Development Program in Presentation and Confidence Skills',issuer:'KVIM B School',year:'2026',group:'KVIM B School'},
+  {title:'Skill Development Program in Professional Communication Skills',issuer:'KVIM B School',year:'2026',group:'KVIM B School'},
+  {title:'Skill Development Program in Self-Management & Work Discipline',issuer:'KVIM B School',year:'2026',group:'KVIM B School'},
+  {title:'Certification Course in Financial Modeling, Valuation & Banking',issuer:'KVIM B School',year:'2026',group:'KVIM B School'},
+  {title:'Skill Development Program in Problem Solving & Critical Thinking',issuer:'KVIM B School',year:'2026',group:'KVIM B School'},
+  {title:'Skill Development Program in Cyber Security in Business Operations',issuer:'KVIM B School',year:'2026',group:'KVIM B School'},
+  {title:'Add-on Course in Technology in Management',issuer:'KVIM B School',year:'2026',group:'KVIM B School'},
+  {title:'Skill Development Program in Strategic Influence, Change & Narrative Skills',issuer:'KVIM B School',year:'2026',group:'KVIM B School'},
+  {title:'Certification Course in Prompt Engineering',issuer:'KVIM B School',year:'2026',group:'KVIM B School'},
+  // Saylor Academy — Computer Science & Technology
+  {title:'CS205: Building with Artificial Intelligence',issuer:'Saylor Academy',year:'2026',group:'Saylor: CS & Tech'},
+  {title:'CS403: Introduction to Modern Database Systems',issuer:'Saylor Academy',year:'2026',group:'Saylor: CS & Tech'},
+  {title:'PRDV430: AI for Business Applications',issuer:'Saylor Academy',year:'2026',group:'Saylor: CS & Tech'},
+  {title:'BUS250: Introduction to Business Intelligence and Analytics',issuer:'Saylor Academy',year:'2026',group:'Saylor: CS & Tech'},
+  {title:'BUS611: Data Management',issuer:'Saylor Academy',year:'2026',group:'Saylor: CS & Tech'},
+  {title:'CS102: Introduction to Computer Science II',issuer:'Saylor Academy',year:'2026',group:'Saylor: CS & Tech'},
+  {title:'CS201: Elementary Data Structures',issuer:'Saylor Academy',year:'2026',group:'Saylor: CS & Tech'},
+  {title:'CS302: Software Engineering',issuer:'Saylor Academy',year:'2026',group:'Saylor: CS & Tech'},
+  {title:'BUS206: Management Information Systems',issuer:'Saylor Academy',year:'2026',group:'Saylor: CS & Tech'},
+  {title:'CS406: Information Security',issuer:'Saylor Academy',year:'2026',group:'Saylor: CS & Tech'},
+  {title:'BUS642: Applications of Management Information Systems',issuer:'Saylor Academy',year:'2026',group:'Saylor: CS & Tech'},
+  // Saylor — Management & Leadership
+  {title:'BUS501: Strategic Management',issuer:'Saylor Academy',year:'2026',group:'Saylor: Mgmt & Leadership'},
+  {title:'BUS643: Leading Organizational Change',issuer:'Saylor Academy',year:'2026',group:'Saylor: Mgmt & Leadership'},
+  {title:'BUS608: Ethical and Strategic Management',issuer:'Saylor Academy',year:'2026',group:'Saylor: Mgmt & Leadership'},
+  {title:'BUS401: Management Leadership',issuer:'Saylor Academy',year:'2026',group:'Saylor: Mgmt & Leadership'},
+  {title:'PRDV228: Decision-Making',issuer:'Saylor Academy',year:'2026',group:'Saylor: Mgmt & Leadership'},
+  // Saylor — Marketing & Communication
+  {title:'BUS634: Marketing Research, Strategy, and Application',issuer:'Saylor Academy',year:'2026',group:'Saylor: Marketing'},
+  {title:'BUS602: Marketing Management',issuer:'Saylor Academy',year:'2026',group:'Saylor: Marketing'},
+  {title:'BUS632: Digital Marketing and Advertising',issuer:'Saylor Academy',year:'2026',group:'Saylor: Marketing'},
+  {title:'BUS210: Business Communication',issuer:'Saylor Academy',year:'2026',group:'Saylor: Marketing'},
+  {title:'BUS612: Data-Driven Communications',issuer:'Saylor Academy',year:'2026',group:'Saylor: Marketing'},
+  // Saylor — Entrepreneurship & Business Law
+  {title:'BUS650: Entrepreneurial Leadership',issuer:'Saylor Academy',year:'2026',group:'Saylor: Entrepreneurship'},
+  {title:'BUS653: Innovation and Entrepreneurship Launch',issuer:'Saylor Academy',year:'2026',group:'Saylor: Entrepreneurship'},
+  {title:'BUS652: Creativity and Ideation in Entrepreneurship',issuer:'Saylor Academy',year:'2026',group:'Saylor: Entrepreneurship'},
+  {title:'BUS305: Foundations of Entrepreneurship',issuer:'Saylor Academy',year:'2026',group:'Saylor: Entrepreneurship'},
+  {title:'BUS651: Business Law and Entrepreneurship',issuer:'Saylor Academy',year:'2026',group:'Saylor: Entrepreneurship'},
+  // Saylor — Project, Operations & Supply Chain
+  {title:'BUS605: Strategic Project Management',issuer:'Saylor Academy',year:'2026',group:'Saylor: Operations'},
+  {title:'BUS606: Operations and Supply Chain Management',issuer:'Saylor Academy',year:'2026',group:'Saylor: Operations'},
+  {title:'BUS300: Operations Management',issuer:'Saylor Academy',year:'2026',group:'Saylor: Operations'},
+  {title:'BUS604: Innovation and Sustainability',issuer:'Saylor Academy',year:'2026',group:'Saylor: Operations'},
+  {title:'BUS402: Introduction to Project Management',issuer:'Saylor Academy',year:'2026',group:'Saylor: Operations'},
+  // Saylor — Analytics, Finance & Economics
+  {title:'BUS607: Data-Driven Decision-Making',issuer:'Saylor Academy',year:'2026',group:'Saylor: Analytics & Finance'},
+  {title:'BUS204: Business Statistics',issuer:'Saylor Academy',year:'2026',group:'Saylor: Analytics & Finance'},
+  {title:'BUS202: Principles of Finance',issuer:'Saylor Academy',year:'2026',group:'Saylor: Analytics & Finance'},
+  {title:'BUS103: Introduction to Financial Accounting',issuer:'Saylor Academy',year:'2026',group:'Saylor: Analytics & Finance'},
+  {title:'ECON102: Principles of Macroeconomics',issuer:'Saylor Academy',year:'2026',group:'Saylor: Analytics & Finance'},
+  {title:'BUS105: Managerial Accounting',issuer:'Saylor Academy',year:'2026',group:'Saylor: Analytics & Finance'},
+  {title:'ECON101: Principles of Microeconomics',issuer:'Saylor Academy',year:'2026',group:'Saylor: Analytics & Finance'},
+  // Saylor — Professional Development & Negotiation
+  {title:'BUS641: Strategic Negotiations and Conflict Management',issuer:'Saylor Academy',year:'2026',group:'Saylor: Prof Dev'},
+  {title:'BUS403: Negotiations and Conflict Management',issuer:'Saylor Academy',year:'2026',group:'Saylor: Prof Dev'},
+  {title:'PRDV230: Create a Workplace Conflict Resolution Policy',issuer:'Saylor Academy',year:'2026',group:'Saylor: Prof Dev'},
+  {title:'PRDV104: Professional Etiquette',issuer:'Saylor Academy',year:'2026',group:'Saylor: Prof Dev'}
 ];
 
 const ACHIEVEMENTS=[
+  {title:'Best Paper Award — Macroeconomic Determinants & Indian Stock',year:'Apr 2026',desc:'Won the Best Paper Award at KVIM B School for research on the impact of macroeconomic determinants on the Indian stock market.'},
+  {title:"MoE Innovation Ambassador (Foundation, Advanced & Reskilling)",year:'2026',desc:"Certified by the Ministry of Education's Innovation Cell across three tiers — Foundation, Advanced, and Reskilling — recognizing contribution to the innovation ecosystem."},
+  {title:'Bajaj Finserv CPBFI — 95% Score',year:'2026',desc:'Topped the Certificate Programme in Banking, Finance and Insurance (CPBFI) with a 95% score; also scored 90% in the HR Workshop.'},
+  {title:'NPTEL Elite — AI in Human Resource Management (Top 2%)',year:'2026',desc:'Achieved Top 2% national ranking in NPTEL AI in Human Resource Management certification, earning Elite status.'},
+  {title:'CertVault — Digital Credential Verification Platform',year:'Apr 2026',desc:'Designed and deployed a digital certificate vault with individual online verification links for every credential, hosted on GitHub Pages.'},
+  {title:'NexoFarm & NexoChef — Agri-Tech Innovation',year:'2026',desc:'Conceptualized and prototyped NexoFarm (smart farm management) and NexoChef (recipe intelligence) — two HTML-based product demos with a video pitch.'},
   {title:'Automated Institutional Timetable System',year:'2025',desc:'Designed and deployed an automated timetable system actively used by KVIM for official academic planning.'},
   {title:'QR Lab Registry — Active Institutional Deployment',year:'2025',desc:'QR-code based lab registry in active use for attendance tracking and real-time monitoring.'},
-  {title:'NPTEL Elite Certificate — AI in HR (Top 2%)',year:'2026',desc:'Achieved Top 2% national ranking in NPTEL AI in Human Resource Management certification.'},
-  {title:'93% Engagement Rate as Analytics Trainer',year:'2025',desc:'Achieved 93% student engagement rate and 4.7/5.0 feedback score while training 100+ students in data analytics.'},
-  {title:'35% Financial Efficiency Improvement',year:'2023',desc:'Delivered up to 35% improvement in financial efficiency through budgeting and variance analysis at MSME.'},
-  {title:'40+ AI & Analytics Projects Executed',year:'2026',desc:'Successfully executed 40+ projects spanning AI, Data Science, Business Intelligence, and Automation.'}
+  {title:'93% Engagement Rate as Analytics Trainer',year:'2025',desc:'Achieved 93% student engagement rate and 4.7/5.0 feedback score while training 80+ students in data analytics at KVIM.'},
+  {title:'35% Financial Efficiency Improvement',year:'2023',desc:'Delivered up to 35% improvement in financial efficiency through budgeting and variance analysis at Sri Sairam Agency (MSME).'},
+  {title:'40+ AI & Analytics Projects Executed',year:'2026',desc:'Successfully executed 40+ projects spanning AI, Data Science, Business Intelligence, and Automation domains.'}
 ];
 
 document.addEventListener('DOMContentLoaded',()=>{
@@ -849,6 +993,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   renderSkills();
   renderProjects();
   renderCertifications();
+  renderInnovations();
   renderAchievements();
   setTimeout(()=>{ document.body.classList.add('page-loaded'); new ParticleSystem('particles-canvas'); initScrollAnimations(); initSectionHeaders(); initTimelineObserver(); initCounters(); }, 150);
 });
@@ -871,8 +1016,8 @@ function initNavbar(){
   window.addEventListener('scroll',()=>navbar.classList.toggle('scrolled',window.scrollY>50));
   function toggle(){hamburger.classList.toggle('active');panel.classList.toggle('active');overlay.classList.toggle('active');document.body.style.overflow=panel.classList.contains('active')?'hidden':'';}
   hamburger.addEventListener('click',toggle);overlay.addEventListener('click',toggle);
-  const sections=['about','focus','experience','education','skills','projects','certifications','achievements','contact'];
-  const labels={about:'About',focus:'Focus Areas',experience:'Experience',education:'Education',skills:'Skills',projects:'Projects',certifications:'Certifications',achievements:'Achievements',contact:'Contact'};
+  const sections=['about','focus','experience','education','skills','projects','innovation','certifications','achievements','contact'];
+  const labels={about:'About',focus:'Focus Areas',experience:'Experience',education:'Education',skills:'Skills',projects:'Projects',innovation:'Innovation',certifications:'Certifications',achievements:'Achievements',contact:'Contact'};
   sections.forEach(id=>{const a=document.createElement('a');a.href='#'+id;a.textContent=labels[id];a.dataset.section=id;a.addEventListener('click',e=>{e.preventDefault();document.getElementById(id)?.scrollIntoView({behavior:'smooth'});if(panel.classList.contains('active'))toggle();});panel.appendChild(a);});
 }
 
@@ -981,6 +1126,51 @@ function renderEducation(){
 }
 
 
+
+// ── INNOVATION SPOTLIGHT ──
+const INNOVATIONS=[
+  {
+    name:'NexoFarm',
+    tagline:'Smart Farm Management & Agri-Intelligence Platform',
+    description:'A model application that brings data-driven decision-making to small and mid-scale farmers — covering crop planning, resource scheduling, yield forecasting, and market-linkage intelligence. NexoFarm unifies farm operations, weather data, and pricing signals into a single intuitive dashboard, helping farmers move from reactive to predictive agriculture.',
+    icon:'fa-seedling',
+    accent:'#22c55e',
+    accentGlow:'rgba(34,197,94,0.35)',
+    links:[
+      {label:'Live Model App',url:'https://magesh-kanna-s.github.io/nexofarm/',icon:'fa-arrow-up-right-from-square'}
+    ],
+    features:['Crop & resource planning','Yield forecasting','Weather & pricing signals','Single-dashboard operations']
+  },
+  {
+    name:'NexoChef',
+    tagline:'Recipe Intelligence & Personalized Cooking Assistant',
+    description:'A model application that pairs ingredient-aware recipe discovery with intelligent meal planning. NexoChef recommends recipes based on available ingredients, dietary preferences, and nutrition goals, and includes a guided cooking flow with step-by-step timers and smart substitutions — making everyday cooking faster, healthier, and less wasteful.',
+    icon:'fa-utensils',
+    accent:'#f59e0b',
+    accentGlow:'rgba(245,158,11,0.35)',
+    links:[
+      {label:'Live Model App',url:'https://magesh-kanna-s.github.io/nexochef/',icon:'fa-arrow-up-right-from-square'},
+      {label:'Video Pitch',url:'https://magesh-kanna-s.github.io/nexochef.pitch/',icon:'fa-play'}
+    ],
+    features:['Ingredient-aware search','Diet & nutrition filters','Guided cooking flow','Smart substitutions']
+  },
+  {
+    name:'CertVault',
+    tagline:'Digital Certificate Vault & Verification Platform',
+    description:'A centralized credential management system with automated certificate distribution, email-based retrieval, and unique verification links for every credential. CertVault streamlines how institutions issue and validate certificates — deployed via GitHub Pages for seamless, instant online verification by any third party.',
+    icon:'fa-shield-halved',
+    accent:'#06b6d4',
+    accentGlow:'rgba(6,182,212,0.35)',
+    links:[
+      {label:'Live Vault',url:'https://magesh-kanna-s.github.io/CertVault/',icon:'fa-arrow-up-right-from-square'},
+      {label:'Verify',url:'https://magesh-kanna-s.github.io/CertVault/verify/',icon:'fa-circle-check'}
+    ],
+    features:['Automated certificate distribution','Email-based retrieval','Unique verification links','GitHub Pages hosting']
+  }
+];
+
+
+
 function renderSkills(){
   const c=document.getElementById('skills-grid');
   if(!c)return;
@@ -994,14 +1184,30 @@ function renderProjects(){
   const cats=Object.keys(PROJECTS);
   const icons={'AI & Data Science':'fa-robot','Business Intelligence':'fa-chart-bar','Automation':'fa-bolt'};
   tabs.innerHTML=cats.map((cat,i)=>`<button class="cert-tab ${i===0?'active':''}" data-proj="${i}"><i class="fas ${icons[cat]||'fa-folder'}"></i> ${cat}</button>`).join('');
-  panels.innerHTML=cats.map((cat,i)=>`<div class="cert-panel ${i===0?'active':''}" id="pp-${i}"><div class="projects-grid">${PROJECTS[cat].map(p=>`<div class="project-card scroll-animate"><h3>${p.title}</h3><div class="project-meta">${p.tech}</div><div class="project-desc">${p.desc}</div><div class="project-tags">${p.tags.map(t=>`<span class="project-badge">${t}</span>`).join('')}</div></div>`).join('')}</div></div>`).join('');
+  panels.innerHTML=cats.map((cat,i)=>`<div class="cert-panel ${i===0?'active':''}" id="pp-${i}"><div class="projects-grid">${PROJECTS[cat].map(p=>`<div class="project-card scroll-animate"><h3>${p.title}</h3><div class="project-meta">${p.tech}</div><div class="project-desc">${p.desc}</div><div class="project-tags">${p.tags.map(t=>`<span class="project-badge">${t}</span>`).join('')}</div>${p.links?`<div class="project-links">${p.links.map(l=>`<a href="${l.url}" target="_blank" rel="noopener" class="project-link"><i class="fas fa-arrow-up-right-from-square"></i> ${l.label}</a>`).join('')}</div>`:''}</div>`).join('')}</div></div>`).join('');
   tabs.addEventListener('click',e=>{const t=e.target.closest('.cert-tab');if(!t)return;const idx=t.dataset.proj;tabs.querySelectorAll('.cert-tab').forEach(x=>x.classList.remove('active'));t.classList.add('active');panels.querySelectorAll('.cert-panel').forEach(x=>x.classList.remove('active'));document.getElementById('pp-'+idx).classList.add('active');setTimeout(initScrollAnimations,100);});
 }
 
 function renderCertifications(){
   const c=document.getElementById('certifications-list');
   if(!c)return;
-  c.innerHTML=`<ul class="cert-list">${CERTIFICATIONS.map(cert=>`<li class="cert-item scroll-animate"><div class="cert-item-header"><div><div class="cert-item-title"><i class="fas fa-certificate" style="color:var(--accent);margin-right:8px"></i>${cert.title}</div><div class="cert-item-year">${cert.issuer} &mdash; ${cert.year}</div></div><span class="cert-badge">${cert.year}</span></div></li>`).join('')}</ul>`;
+  // Group certifications by their `group` field
+  const groups={};
+  CERTIFICATIONS.forEach(cert=>{
+    const g=cert.group||'Other';
+    if(!groups[g])groups[g]=[];
+    groups[g].push(cert);
+  });
+  const groupOrder=['Innovation','Business','Technology','AI & Automation','NPTEL Elite','Finance & Banking','KVIM B School','Saylor: CS & Tech','Saylor: Mgmt & Leadership','Saylor: Marketing','Saylor: Entrepreneurship','Saylor: Operations','Saylor: Analytics & Finance','Saylor: Prof Dev','Professional','Other'];
+  const sortedGroups=Object.keys(groups).sort((a,b)=>{
+    const ia=groupOrder.indexOf(a),ib=groupOrder.indexOf(b);
+    return (ia===-1?999:ia)-(ib===-1?999:ib);
+  });
+  c.innerHTML=sortedGroups.map(g=>`
+    <div class="cert-group scroll-animate">
+      <div class="cert-group-header"><i class="fas fa-folder-open"></i> ${g} <span class="cert-group-count">${groups[g].length}</span></div>
+      <ul class="cert-list">${groups[g].map(cert=>`<li class="cert-item"><div class="cert-item-header"><div><div class="cert-item-title"><i class="fas fa-certificate" style="color:var(--accent);margin-right:8px"></i>${cert.title}</div><div class="cert-item-year">${cert.issuer} &mdash; ${cert.year}</div></div><span class="cert-badge">${cert.year}</span></div></li>`).join('')}</ul>
+    </div>`).join('');
 }
 
 function renderAchievements(){
@@ -1009,6 +1215,30 @@ function renderAchievements(){
   if(!c)return;
   c.innerHTML=ACHIEVEMENTS.map((a,i)=>`<div class="award-card scroll-animate stagger-${(i%6)+1}"><div class="award-icon"><i class="fas fa-trophy"></i></div><h3>${a.title}</h3><div class="award-year">${a.year}</div><p class="award-desc">${a.desc}</p></div>`).join('');
 }
+
+function renderInnovations(){
+  const c=document.getElementById('innovations-grid');
+  if(!c)return;
+  c.innerHTML=INNOVATIONS.map((inv,i)=>`
+    <div class="innovation-card scroll-animate stagger-${(i%4)+1}" style="--inv-accent:${inv.accent};--inv-glow:${inv.accentGlow};">
+      <div class="innovation-header">
+        <div class="innovation-icon"><i class="fas ${inv.icon}"></i></div>
+        <div class="innovation-titles">
+          <h3>${inv.name}</h3>
+          <div class="innovation-tagline">${inv.tagline}</div>
+        </div>
+      </div>
+      <p class="innovation-desc">${inv.description}</p>
+      <div class="innovation-features">
+        ${inv.features.map(f=>`<span class="innovation-feature"><i class="fas fa-check"></i> ${f}</span>`).join('')}
+      </div>
+      <div class="innovation-links">
+        ${inv.links.map(l=>`<a href="${l.url}" target="_blank" rel="noopener" class="innovation-link"><i class="${l.icon.startsWith('fab')?l.icon:'fas '+l.icon}"></i> ${l.label}</a>`).join('')}
+      </div>
+    </div>`).join('');
+}
+
+
 
 })();
 </script>
