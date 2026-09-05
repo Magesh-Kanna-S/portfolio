@@ -283,7 +283,7 @@ section{padding:var(--section-padding);position:relative;overflow-x:hidden;trans
 .cert-badge{font-size:0.72rem;padding:2px 9px;border-radius:var(--border-radius-full);background:var(--tag-bg);color:var(--tag-text);white-space:nowrap;font-weight:600;flex-shrink:0;margin-top:2px;}
 
 /* ── INNOVATION SPOTLIGHT ── */
-.innovations-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:24px;max-width:1100px;margin:0 auto;}
+.innovations-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:24px;max-width:1240px;margin:0 auto;}
 .innovation-card{background:var(--bg-card);backdrop-filter:blur(10px);border:1px solid var(--border);border-radius:var(--border-radius-lg);padding:32px;position:relative;overflow:hidden;transition:all var(--transition-normal);}
 .innovation-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--inv-accent,var(--accent));opacity:0;transition:opacity var(--transition-normal);}
 .innovation-card:hover{border-color:var(--inv-accent,var(--accent));box-shadow:0 10px 40px var(--inv-glow,var(--accent-glow));transform:translateY(-4px);}
@@ -1171,6 +1171,19 @@ function renderEducation(){
 // ── INNOVATION SPOTLIGHT ──
 const INNOVATIONS=[
   {
+    name:'CampusOne Portal',
+    tagline:'Multi-Role Campus Management & Administration Platform',
+    description:'A complete campus management platform designed for MDT Institute of Technology and built by My Desktop Tech. CampusOne connects seven role-based portals — student, faculty, class advisor, academic director, principal, hostel warden, and office/admin — through a unified data flow where requests, marks, fee receipts, approvals, and administrative processes automatically follow the right chain of authority.',
+    icon:'fa-building-columns',
+    accent:'#3b82f6',
+    accentGlow:'rgba(59,130,246,0.35)',
+    links:[
+      {label:'Demonstration App',url:'https://magesh-kanna-s.github.io/MDT-CampusOne/',icon:'fa-arrow-up-right-from-square'},
+      {label:'Demonstration Video',url:'https://youtu.be/YUwon-SUgqI',icon:'fa-play'}
+    ],
+    features:['Seven connected role-based portals','Automated request & approval workflows','Student, academic, hostel & fee management','Unified multi-tier campus architecture','Self-contained application — open and use']
+  },
+  {
     name:'FAM-GUARD',
     tagline:'Multi-Zone Storage Risk Detection & Adaptive Ventilation System',
     description:'A web-based prototype app for the FAM-GUARD device — a multi-zone storage risk detection and adaptive ventilation system designed for rural Indian households and farms. As an Innovation Ambassador, I helped a mentee who came with nothing but an idea — developed the app and delivered a working product.',
@@ -1268,7 +1281,7 @@ function renderCertifications(){
 function renderAchievements(){
   const c=document.getElementById('awards-grid');
   if(!c)return;
-  c.innerHTML=ACHIEVEMENTS.map((a,i)=>`<div class="award-card scroll-animate stagger-${(i%6)+1}"><div class="award-icon"><i class="fas fa-trophy"></i></div><h3>${a.title}</h3><div class="award-year">${a.year}</div><p class="award-desc">${a.desc}</p>${a.link?`<a href="${a.link}" target="_blank" rel="noopener" class="award-link"><i class="fas fa-arrow-up-right-from-square"></i> View Report</a>`:''}</div>`).join('');
+  c.innerHTML=ACHIEVEMENTS.map((a,i)=>`<div class="award-card scroll-animate stagger-${(i%6)+1}"><div class="award-icon"><i class="fas fa-trophy"></i></div><h3>${a.title}</h3><div class="award-year">${a.year}</div><p class="award-desc">${a.desc}</p>${a.link?`<a href="${a.link}" target="_blank" rel="noopener" class="award-link"><i class="fas fa-arrow-up-right-from-square"></i> View Certificate</a>`:''}</div>`).join('');
 }
 
 function renderInnovations(){
